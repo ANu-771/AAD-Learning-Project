@@ -8,7 +8,9 @@ import com.ijse.aad.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -47,5 +49,34 @@ public class UserServiceImpl implements UserService {
         return responseDTO;
 
 
+    }
+
+    @Override
+    public List<UserDTO> getUser() {
+        log.info("Execute method getUsers()");
+        try{
+
+            List<UserDTO> responseList = new ArrayList<>();
+            List<User> userList = userRepository.findAll();
+
+            for (User user : userList) {
+                UserDTO userDTO = new UserDTO();
+                userDTO.setUserId(user.getUserId());
+                userDTO.setFirstName(user.getFirstName());
+                userDTO.setLastName(user.getLastName());
+                userDTO.setDob(user.getDob());
+                userDTO.setStatus(user.getStatus());
+
+                responseList.add(userDTO);
+            }
+
+            return  responseList;
+
+
+        } catch (Exception e) {
+            log.error("Error in Method getUsers() : " + e.getMessage());
+            return null;
+
+        }
     }
 }

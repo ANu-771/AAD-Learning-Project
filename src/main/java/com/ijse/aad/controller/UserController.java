@@ -3,9 +3,12 @@ package com.ijse.aad.controller;
 import com.ijse.aad.dto.UserDTO;
 import com.ijse.aad.service.UserService;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "v1/users")
@@ -20,7 +23,12 @@ public class UserController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE) //Json response turns to json String
     public UserDTO saveUser() {
 
-        UserDTO userDTO = new UserDTO();
-        return userService.saveUser();
+        UserDTO userDTO = userService.saveUser();
+        return userDTO;
+    }
+
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDTO> getAllUsers() {
+        return userService.getUser();
     }
 }
