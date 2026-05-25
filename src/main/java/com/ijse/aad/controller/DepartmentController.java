@@ -3,10 +3,7 @@ package com.ijse.aad.controller;
 import com.ijse.aad.dto.DepartmentDTO;
 import com.ijse.aad.service.DepartmentService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +18,8 @@ public class DepartmentController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public DepartmentDTO SaveDepartment() {
-        DepartmentDTO departmentDTO = departmentService.saveDepartment();
-        return departmentDTO;
+    public DepartmentDTO SaveDepartment(@RequestBody DepartmentDTO departmentDTO) {
+        return departmentService.saveDepartment(departmentDTO);
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)

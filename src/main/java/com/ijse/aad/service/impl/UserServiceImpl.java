@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO saveUser() {
+    public UserDTO saveUser(UserDTO userDTO) {
         // Implementation for saving a user
 
         log.info("Execute method saveUser()");
@@ -77,6 +78,31 @@ public class UserServiceImpl implements UserService {
             log.error("Error in Method getUsers() : " + e.getMessage());
             return null;
 
+        }
+    }
+
+    @Override
+    public UserDTO getUserDetail(long userId) {
+        log.info("Execute method getUserDetail() userId {} ", userId);
+
+        try {
+
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if (!optionalUser.isPresent()) {
+                log.error("User not found ...");
+                throw new RuntimeException("User not found");
+            }
+            User user = optionalUser.get();
+            UserDTO userDTO = new UserDTO();
+            userDTO.setUserId(user.getUserId());
+            userDTO.setFirstName(user.getFirstName());
+            userDTO.setLastName(user.getLastName());
+            userDTO.setDob(user.getDob());
+            userDTO.setStatus(user.getStatus());
+            return userDTO;
+        } catch (Exception e) {
+            log.error("Error in msg getUserDetails()" + e.getMessage());
+            throw e;
         }
     }
 }

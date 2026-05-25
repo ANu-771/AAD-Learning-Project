@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface UserService {
 
-    UserDTO saveUser();
+    UserDTO saveUser(UserDTO userDTO);
 
     List<UserDTO> getUser();
+
+    UserDTO getUserDetail(long userId);
 }
