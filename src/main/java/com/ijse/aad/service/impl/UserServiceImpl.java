@@ -94,12 +94,14 @@ public class UserServiceImpl implements UserService {
             }
             User user = optionalUser.get();
             UserDTO userDTO = new UserDTO();
+
             userDTO.setUserId(user.getUserId());
             userDTO.setFirstName(user.getFirstName());
             userDTO.setLastName(user.getLastName());
             userDTO.setDob(user.getDob());
             userDTO.setStatus(user.getStatus());
             return userDTO;
+
         } catch (Exception e) {
             log.error("Error in msg getUserDetails()" + e.getMessage());
             throw e;

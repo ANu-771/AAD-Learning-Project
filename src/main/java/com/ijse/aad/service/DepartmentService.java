@@ -8,4 +8,6 @@ public interface DepartmentService {
     DepartmentDTO saveDepartment(DepartmentDTO departmentDTO);
 
     List<DepartmentDTO> getDepartment();
+
+    DepartmentDTO getDepartmentDetail(long departmentId);
 }
