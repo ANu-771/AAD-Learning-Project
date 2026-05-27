@@ -27,6 +27,7 @@ public class UserController {
         return userService.getUser();
     }
 
+    //search for a user by id via postman
     @GetMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getUserDetail(@PathVariable long userId) {
         return userService.getUserDetail(userId);
