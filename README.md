@@ -223,7 +223,7 @@ Developed by [ISURU ANUPAMA](https://github.com/ANu-771)
 
 ## ⭐ Support
 
-<img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="30px"> Don't forget to hit the ⭐ if you like this repo. <img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="30px">
+ <img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="30px"> If you found this project useful, consider giving it a ⭐ on GitHub. <img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="30px">
 
 ---
 
